@@ -28,6 +28,15 @@ dir.create("Data Cleaning")
 dir.create("Data Viz")
 file.copy("Data_VIsuaalization.R", "Data viz")
 
+## Cleaning Data after installing packages for cleaning
+  install.packages("here")
+  library("here")
+  install.packages("skimr")
+  library("skimr")
+  install.packages("janitor")
+  library("janitor")
+  library("dplyr")
+
 
 ## Working with pipes
 install.packages("dplyr")
