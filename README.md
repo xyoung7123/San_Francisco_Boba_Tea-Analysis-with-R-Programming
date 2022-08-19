@@ -49,6 +49,22 @@ View(filtered_boba)
 ## sorting and arranging dataset
 arrange(filtered_boba, city)
 
+## Sorting the rating by mean, max summary
+    Boba_tea %>% 
+      group_by(rating) %>% 
+      summarize(mean_rating = mean(rating))  
+      
+    
+    Boba_tea %>% 
+      group_by(city) %>% 
+      summarize(max_rating = max(rating))  
+    
+    
+    Boba_tea %>% 
+      group_by(city, name) %>% 
+      summarize(max_rating = max(rating), mean_rating = mean(rating))  
+
+
 ## applying pipes for filtering and sorting the top rated tea shops and top cities
 Filtered_BR5 <- Boba_tea %>% 
   filter(rating>4.5) %>% 
