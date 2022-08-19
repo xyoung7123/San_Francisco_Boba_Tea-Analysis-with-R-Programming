@@ -66,7 +66,17 @@ Filter_Good_Rating_City <- Boba_tea %>%
   group_by(city) %>% 
   summarize(mean_rating = mean(rating, na.rm = T),.group="Good & Excellent Rating")
 View(Filter_Good_Rating_City)
-
+    
+## Separate the Longitute and latitude
+  separate(Boba_tea, lat.long, into = c('lat', 'long'), sep '-')
 
 ## code for visualization
 ggplot(data = Boba_tea) + geom_bar(mapping = aes(x = rating, color = rating))
+
+
+## Tea shop count with minimum of 4.0
+Boba_tea %>% 
+  filter(rating>=4) %>% 
+  ggplot(aes(x=name)) + geom_bar(mapping = aes(x = rating), colour = "red") +
+  labs(title = "Tea Shop Count with at least rating of 4")
+
